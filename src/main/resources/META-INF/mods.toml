@@ -1,0 +1,25 @@
+modLoader="javafml"
+loaderVersion="[47,)"
+license="MIT"
+
+[[mods]]
+modId="ragdollmod"
+version="1.0.0-1.20.1"
+displayName="Active Ragdoll Mod"
+description='''
+Minecraft 1.20.1 Forge Active Ragdoll Physics, Directional Arm Grabbing, Knockback Collapse, and 5-Second Block Break Decay Mod.
+'''
+
+[[dependencies.ragdollmod]]
+    modId="forge"
+    mandatory=true
+    versionRange="[47.2.0,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.ragdollmod]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.20.1,1.21)"
+    ordering="NONE"
+    side="BOTH"
