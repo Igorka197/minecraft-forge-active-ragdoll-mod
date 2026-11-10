@@ -4,7 +4,7 @@ license="MIT"
 
 [[mods]]
 modId="ragdollmod"
-version="1.0.0-1.20.1"
+version="1.0.0"
 displayName="Active Ragdoll Mod"
 description='''
 Minecraft 1.20.1 Forge Active Ragdoll Physics, Directional Arm Grabbing, Knockback Collapse, and 5-Second Block Break Decay Mod.
