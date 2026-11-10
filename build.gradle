@@ -1,30 +1,45 @@
 plugins {
     id 'java'
+    id 'net.minecraftforge.gradle' version '[6.0,6.2)'
 }
 
+version = '1.0.0'
 group = 'com.example.ragdollmod'
-version = '1.0.0-1.20.1'
+base {
+    archivesName = 'ragdollmod-1.20.1'
+}
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(17)
+
+minecraft {
+    mappings channel: 'official', version: '1.20.1'
+}
 
 repositories {
     mavenCentral()
     maven { url = 'https://maven.minecraftforge.net/' }
+    maven { url = 'https://libraries.minecraft.net/' }
+    maven { url = 'https://repo.spongepowered.org/repository/maven-public/' }
 }
 
-java {
-    toolchain {
-        languageVersion = JavaLanguageVersion.of(17)
-    }
+dependencies {
+    minecraft 'net.minecraftforge:forge:1.20.1-47.2.0'
+    compileOnly 'org.spongepowered:mixin:0.8.5'
 }
 
-jar {
+tasks.named('jar', Jar).configure {
     manifest {
         attributes([
-            "Specification-Title"     : "ragdollmod",
-            "Specification-Vendor"    : "example",
-            "Specification-Version"   : "1",
-            "Implementation-Title"    : "Minecraft Forge Active Ragdoll Mod",
-            "Implementation-Version"  : "1.0.0-1.20.1",
-            "Implementation-Vendor"   : "example"
+            'Specification-Title': 'ragdollmod',
+            'Specification-Vendor': 'RagdollDev',
+            'Specification-Version': '1',
+            'Implementation-Title': project.name,
+            'Implementation-Version': project.version
         ])
     }
+    finalizedBy 'reobfJar'
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
 }
