@@ -1,0 +1,30 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.example.ragdollmod'
+version = '1.0.0-1.20.1'
+
+repositories {
+    mavenCentral()
+    maven { url = 'https://maven.minecraftforge.net/' }
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+jar {
+    manifest {
+        attributes([
+            "Specification-Title"     : "ragdollmod",
+            "Specification-Vendor"    : "example",
+            "Specification-Version"   : "1",
+            "Implementation-Title"    : "Minecraft Forge Active Ragdoll Mod",
+            "Implementation-Version"  : "1.0.0-1.20.1",
+            "Implementation-Vendor"   : "example"
+        ])
+    }
+}
